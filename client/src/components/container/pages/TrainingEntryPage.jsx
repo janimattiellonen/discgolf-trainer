@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 
 export default class TrainingEntryPage extends React.Component {
   render() {
-
+    return (
+      <div>
+        Training entry page
+      </div>
+    );
   }
 }

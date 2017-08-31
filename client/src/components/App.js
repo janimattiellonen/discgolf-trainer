@@ -4,11 +4,10 @@ import styles from './App.pcss';
 import Link from 'redux-first-router-link';
 import IndexPage from './container/IndexPageContainer';
 import UserPage from './container/UserPageContainer';
+import TrainingEntryPage from './container/TrainingEntryContainer';
 
 class App extends React.Component {
-
   render() {
-
     const { location } = this.props;
 
     return (
@@ -19,7 +18,7 @@ class App extends React.Component {
 
         {location.type === 'HOME' && <IndexPage />}
         {location.type === 'USER' && <UserPage id={location.payload.id} />}
-
+        {location.type === 'TRAINING' && <TrainingEntryPage id={location.payload.id} />}
       </div>
     );
   }
