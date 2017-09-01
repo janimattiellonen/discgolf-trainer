@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import Wrapped from './pages/TrainingEntryPage';
 
 export default connect(
-  state => ({
-
+  (state, props) => ({
+    trainingSession: state.training.get('trainingSessions').find(t => t.id === props.id),
   }),
   dispatch => bindActionCreators({
 

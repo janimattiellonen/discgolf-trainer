@@ -1,5 +1,5 @@
 import { getPersons } from './ducks/person';
-import { getTrainingSession } from './ducks/training';
+import { getTrainingSessions } from './ducks/training';
 
 const routes = {
   HOME: {
@@ -17,8 +17,8 @@ const routes = {
   TRAINING: {
     path: '/training/:id',
     thunk: (dispatch, getState) => {
-      console.log(JSON.stringify(getState().location.payload.id));
-      return dispatch(getTrainingSession(getState().location.payload.id));
+      console.log("here");
+      return dispatch(getTrainingSessions());
     }
   }
 };
