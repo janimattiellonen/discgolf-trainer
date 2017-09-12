@@ -9,14 +9,7 @@ const IndexPage = props => {
   const youngPeoples = persons.filter(p => p.age <= 30);
 
   return (
-
-
-
-
     <div>
-
-
-
       <h2>Good Peoples</h2>
 
       <PersonList persons={youngPeoples} />
@@ -24,11 +17,8 @@ const IndexPage = props => {
       <h2>Bad Peoples</h2>
 
       <PersonList persons={oldPeoples} />
-
-
     </div>
   )
-
 };
 
 export default IndexPage;
