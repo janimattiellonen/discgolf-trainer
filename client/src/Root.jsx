@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import App from './components/container/AppContainer';
-import AppLayout from './container/layouts/AppLayout';
-import TrainingEntryPage from './container/pages/TrainingEntryPage';
+import AppLayout from './components/container/layouts/AppLayout';
+import TrainingEntryPage from './components/container/pages/TrainingEntryPage';
 
 function AppLayoutRoute({ match }) {
   return (

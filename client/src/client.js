@@ -4,48 +4,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './Root';
-import { createStore } from './utils/redux';
-import { getMiddlewares, getReducers, getEnhancers, getInitialState } from './config/redux';
+//import { createStore } from './utils/redux';
+import createStore from './store';
+//import { getMiddlewares, getReducers, getEnhancers, getInitialState } from './config/redux';
 import Redbox from 'redbox-react';
-import { connectRoutes } from 'redux-first-router';
+//import { connectRoutes } from 'redux-first-router';
+import { AppContainer } from 'react-hot-loader';
 import createHistory from 'history/createBrowserHistory';
 import routes from './routes';
 
 const history = createHistory();
-const { reducer, middleware, enhancer } = connectRoutes(history, routes);
-
-
+//const { reducer, middleware, enhancer } = connectRoutes(history, routes);
 
 if (__DEVELOPMENT__) {
   const Perf = require('react-addons-perf');
   window.Perf = Perf;
 }
 
-const initialState = getInitialState();
-
-const store = createStore(
-  {
-    ...getReducers(),
-    location: reducer,
-  },
-  [
-    ...getMiddlewares(),
-    middleware,
-  ],
-  [
-    ...getEnhancers(),
-    enhancer,
-  ],
-  initialState,
-);
+const store = createStore(history);
 
 function render(Component, rootElement) {
 
   if (__DEVELOPMENT__) {
     try {
       ReactDOM.render(
-        <Component store={store} />,
-        rootElement
+        <AppContainer>
+          <Component store={store} history={history} />
+        </AppContainer>,
+        rootElement,
       );
     } catch (e) {
       ReactDOM.render(
@@ -55,8 +41,10 @@ function render(Component, rootElement) {
     }
   } else {
     ReactDOM.render(
-      <Component store={store} />,
-      rootElement
+      <AppContainer>
+        <Component store={store} history={history} />
+      </AppContainer>,
+      rootElement,
     );
   }
 }

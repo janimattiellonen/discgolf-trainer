@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Person.pcss';
-import Link from 'redux-first-router-link';
+import { Link } from 'react-router-dom';
 
 const Person = props => {
   const { person } = props;

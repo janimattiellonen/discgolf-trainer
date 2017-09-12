@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/trollo.png';
 import styles from './App.pcss';
-import Link from 'redux-first-router-link';
+import { Link } from 'react-router-dom';
 import IndexPage from './container/IndexPageContainer';
 import UserPage from './container/UserPageContainer';
 import TrainingEntryPage from './container/TrainingEntryContainer';

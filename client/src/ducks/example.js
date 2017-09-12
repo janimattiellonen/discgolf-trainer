@@ -2,12 +2,12 @@ import { List, Map } from 'immutable';
 
 const defaultState = Map({
   example: 'value',
-  examples: List.of(
+  examples: List([
     'eka',
     'toka',
     'koli',
     'neli',
-  )
+  ])
 });
 
 export function setExample(value) {
