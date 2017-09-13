@@ -4,23 +4,25 @@ import { Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import App from './components/container/AppContainer';
 import AppLayout from './components/container/layouts/AppLayout';
-import TrainingEntryPage from './components/container/pages/TrainingEntryPage';
+import TrainingEntryContainer from './components/container/TrainingEntryContainer';
 
 function AppLayoutRoute({ match }) {
   return (
     <AppLayout>
-      <Route exact path={`${match.url}/:id`} component={TrainingEntryPage} />
+      <Route exact path={`${match.url}/:id`} component={TrainingEntryContainer} />
     </AppLayout>
   );
 }
 
 const Root = props => {
-  const { store } = props;
+  const { history, store } = props;
   return (
     <Provider store={store}>
-      <App>
-        <Route path="/training" component={AppLayoutRoute} />
-      </App>
+      <ConnectedRouter history={history}>
+        <App>
+          <Route path="/training" component={AppLayoutRoute} />
+        </App>
+      </ConnectedRouter>
     </Provider>
   );
 };

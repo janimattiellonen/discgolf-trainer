@@ -1,8 +1,11 @@
-import { connect } from 'react-redux';
-import App from '../App';
+import React from 'react';
+//import logo from '../assets/trollo.png';
+//import styles from './App.pcss';
 
-export default connect(
-  state => ({
-    location: state.location,
-  })
-)(App);
+const App = ({ children }) => (
+  <div>
+    {children}
+  </div>
+);
+
+export default App;

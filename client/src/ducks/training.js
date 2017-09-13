@@ -1,13 +1,12 @@
 import { List, Map } from 'immutable';
 
-
 const defaultState = Map({
   trainingSessions: List(),
 });
 
 export function getTrainingSessions() {
-  console.log("what?");
-  return function (dispatch) {
+  console.log("what????");
+  return (dispatch) => {
     console.log("dsdfgdfgdfg");
     return dispatch({
       type: 'GET_TRAINING_SESSIONS',
@@ -39,17 +38,20 @@ export function getTrainingSession(id) {
   };
 }
 // list.findIndex(item => item.id === action.book.id);
-export default function (state = defaultState, action) {
+export default (state = defaultState, action) => {
   const { type, payload } = action;
   console.log("type: " + type);
   switch (type) {
-    case 'GET_TRAINING_SESSION_FULFILLED':
-    console.log("why?");
-      return state.get('trainingSessions').
-        findIndex(item => item.id === payload.id)
+    case 'GET_TRAINING_SESSION':
+      console.log("why?");
+      console.log("id: " + payload);
+      console.log("sessions: " + JSON.stringify(state.get('trainingSessions')));
+      const tt = state.get('trainingSessions').find(p => p.id === parseInt(payload));
+      console.log("ss: " + JSON.stringify(tt));
+      return state.set('trainingSession', tt);
 
     case 'GET_TRAINING_SESSIONS':
-      console.log("sss");
+      console.log("yeah: " + JSON.stringify(payload));
       return state.set('trainingSessions', payload);
 
     default:

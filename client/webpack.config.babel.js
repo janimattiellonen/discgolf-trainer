@@ -201,6 +201,7 @@ const envs = {
     devtool: '#eval-source-map',
     entry: {
       client: [
+        'react-hot-loader/patch',
         './client.js',
       ],
     },

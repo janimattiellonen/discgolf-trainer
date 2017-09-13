@@ -23,7 +23,7 @@ if (__DEVELOPMENT__) {
 
 const store = createStore(history);
 
-function render(Component, rootElement) {
+function render2(Component, rootElement) {
 
   if (__DEVELOPMENT__) {
     try {
@@ -47,6 +47,15 @@ function render(Component, rootElement) {
       rootElement,
     );
   }
+}
+
+function render(Component, rootElement) {
+  ReactDOM.render(
+    <AppContainer>
+      <Component store={store} history={history} />
+    </AppContainer>,
+    rootElement,
+  );
 }
 
 const rootElement = document.getElementById('app');

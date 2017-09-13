@@ -3,14 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 
-function AppLayout( { children, title } ) {
+function AppLayout( { children } ) {
   return (
     <div>
-      <div className="btn-toolbar">
-        <Helmet title={'Training'} />
-        <h1>Training</h1>
-      </div>
-
       <div>
         {children}
       </div>
@@ -18,8 +13,4 @@ function AppLayout( { children, title } ) {
   );
 }
 
-export default connect(
-  state => ({
-
-  }),
-)(AppLayout);
+export default AppLayout;

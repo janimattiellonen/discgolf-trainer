@@ -4,12 +4,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class TrainingEntryPage extends React.Component {
+  componentWillMount() {
+    const { match, getTrainingSession, getTrainingSessions } = this.props;
+    console.log("udfdfg: " + JSON.stringify(this.props));
+    getTrainingSessions();
+    getTrainingSession(match.params.id);
+  }
+
   render() {
     const { trainingSession } = this.props;
-
+    console.log("sdfdf: " + JSON.stringify(trainingSession));
     return (
       <div>
-        {trainingSession && trainingSession.id}
+        {trainingSession && trainingSession.id &&
           <table>
             <thead>
               <tr>
@@ -26,6 +33,7 @@ export default class TrainingEntryPage extends React.Component {
               </tr>
             </tbody>
           </table>
+        }
       </div>
     );
   }
