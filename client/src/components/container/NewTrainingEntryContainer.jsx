@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Wrapped from './pages/TrainingEntryPage';
+import Wrapped from './pages/NewTrainingEntryPage';
 import { getTrainingSession, getTrainingSessions } from '../../ducks/training';
 
 export default connect(

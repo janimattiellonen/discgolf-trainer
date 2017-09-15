@@ -9,7 +9,7 @@ const validate = (values) => {
   return errors;
 }
 
-const TrainingEntryForm = ({ pristine, submitting }) => {
+const TrainingEntryForm = ({ pristine, submitting }) => (
   <div className="training-entry-form">
     <Form>
       <Row>
@@ -19,7 +19,7 @@ const TrainingEntryForm = ({ pristine, submitting }) => {
       </Row>
     </Form>
   </div>
-};
+);
 
 TrainingEntryForm.propTypes = {
   pristine: PropTypes.bool,
