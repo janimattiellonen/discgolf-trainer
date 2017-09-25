@@ -1,13 +1,13 @@
 import { List, Map } from 'immutable';
 
 const defaultState = Map({
-  trainingSessions: List(),
+  trainingEntries: List(),
 });
 
-export function getTrainingSessions() {
+export function getTrainingEntries() {
   return (dispatch) => {
     return dispatch({
-      type: 'GET_TRAINING_SESSIONS',
+      type: 'GET_TRAINING_ENTRIES',
       payload: List([
         {
           id: 1,
@@ -29,9 +29,9 @@ export function getTrainingSessions() {
   }
 }
 
-export function getTrainingSession(id) {
+export function getTrainingEntry(id) {
   return {
-    type: 'GET_TRAINING_SESSION',
+    type: 'GET_TRAINING_ENTRY',
     payload: id,
   };
 }
@@ -40,12 +40,12 @@ export default (state = defaultState, action) => {
   const { type, payload } = action;
   console.log("type: " + type);
   switch (type) {
-    case 'GET_TRAINING_SESSION':
-      const tt = state.get('trainingSessions').find(p => p.id === parseInt(payload));
-      return state.set('trainingSession', tt);
+    case 'GET_TRAINING_ENTRY':
+      const tt = state.get('trainingEntries').find(p => p.id === parseInt(payload));
+      return state.set('trainingEntry', tt);
 
-    case 'GET_TRAINING_SESSIONS':
-      return state.set('trainingSessions', payload);
+    case 'GET_TRAINING_ENTRIES':
+      return state.set('trainingEntries', payload);
 
     default:
       return state;

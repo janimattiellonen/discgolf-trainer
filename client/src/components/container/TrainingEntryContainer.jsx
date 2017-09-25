@@ -1,15 +1,15 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Wrapped from './pages/TrainingEntryPage';
-import { getTrainingSession, getTrainingSessions } from '../../ducks/training';
+import { getTrainingEntry, getTrainingEntries } from '../../ducks/training';
 
 export default connect(
   (state, props) => ({
-    trainingSession: state.training.get('trainingSessions').find(t => t.id === props.id),
-    trainingSession: state.training.get('trainingSession'),
+    trainingEntry: state.training.get('trainingEntries').find(t => t.id === props.id),
+    trainingEntry: state.training.get('trainingEntry'),
   }),
   dispatch => bindActionCreators({
-    getTrainingSession,
-    getTrainingSessions,
+    getTrainingEntry,
+    getTrainingEntries,
   }, dispatch),
 )(Wrapped);

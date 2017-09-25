@@ -5,17 +5,17 @@ import PropTypes from 'prop-types';
 
 export default class TrainingEntryPage extends React.Component {
   componentWillMount() {
-    const { match, getTrainingSession, getTrainingSessions } = this.props;
-    getTrainingSessions();
-    getTrainingSession(match.params.id);
+    const { match, getTrainingEntry, getTrainingEntries } = this.props;
+    getTrainingEntries();
+    getTrainingEntry(match.params.id);
   }
 
   render() {
-    const { trainingSession } = this.props;
+    const { trainingEntry } = this.props;
 
     return (
       <div>
-        {trainingSession && trainingSession.id &&
+        {trainingEntry && trainingEntry.id &&
           <table>
             <thead>
               <tr>
@@ -26,9 +26,9 @@ export default class TrainingEntryPage extends React.Component {
             </thead>
             <tbody>
               <tr>
-                <td>{trainingSession.id}</td>
-                <td>{trainingSession.duration}</td>
-                <td>{trainingSession.precision * 100}%</td>
+                <td>{trainingEntry.id}</td>
+                <td>{trainingEntry.duration}</td>
+                <td>{trainingEntry.precision * 100}%</td>
               </tr>
             </tbody>
           </table>

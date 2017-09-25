@@ -6,13 +6,13 @@ import TrainingEntryForm from '../../TrainingEntryForm';
 
 export default class NewTrainingEntryPage extends React.Component {
   componentWillMount() {
-    const { match, getTrainingSession, getTrainingSessions } = this.props;
-    getTrainingSessions();
-    getTrainingSession(match.params.id);
+    const { match, getTrainingEntry, getTrainingEntries } = this.props;
+    getTrainingEntries();
+    getTrainingEntry(match.params.id);
   }
 
   render() {
-    const { trainingSession } = this.props;
+    const { trainingEntry } = this.props;
 
     return (
       <div>
