@@ -17,15 +17,22 @@ const validate = (values) => {
     errors.precision = 'Value is required';
   }
 
-  const precisionValidation = validator({precision: values.precision}, {precision: {numericality: true}});
+  const precisionValidation = validator({
+    precision: values.precision,
+  },
+  {
+    precision: {
+      numericality: {
+        greaterThanOrEqualTo: 0,
+        lessThanOrEqualTo: 0,
+      }
+    },
+  });
 
   if (precisionValidation !== undefined) {
     errors.precision = 'Value is not a valid number';
   }
-
-
-
-
+  
   return errors;
 }
 
