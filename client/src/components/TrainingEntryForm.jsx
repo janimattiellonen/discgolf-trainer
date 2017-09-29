@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { Button, Col, ControlLabel, Form, FormGroup, Row } from 'react-bootstrap';
+import validator from 'validate.js';
 
 const validate = (values) => {
   const errors = {};
@@ -12,7 +13,18 @@ const validate = (values) => {
     errors.duration = 'Value is not a valid number';
   }
 
-  console.log(JSON.stringify(errors));
+  if (!values.precision) {
+    errors.precision = 'Value is required';
+  }
+
+  const precisionValidation = validator({precision: values.precision}, {precision: {numericality: true}});
+
+  if (precisionValidation !== undefined) {
+    errors.precision = 'Value is not a valid number';
+  }
+
+
+
 
   return errors;
 }
