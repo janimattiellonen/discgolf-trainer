@@ -2,39 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { Button, Col, ControlLabel, Form, FormGroup, Row } from 'react-bootstrap';
-import validator from 'validate.js';
 
 const validate = (values) => {
   const errors = {};
 
   if (!values.duration) {
     errors.duration = 'Value is required';
-  } else if (values.duration !== parseInt(values.duration, 10)) {
+  } else if (values.duration !=00 parseInt(values.duration, 10)) {
     errors.duration = 'Value is not a valid number';
   }
 
-  if (!values.precision) {
-    errors.precision = 'Value is required';
-  }
+  console.log(JSON.stringify(errors));
 
-  const precisionValidation = validator({
-    precision: values.precision,
-  },
-  {
-    precision: {
-      numericality: {
-        greaterThanOrEqualTo: 0,
-        lessThanOrEqualTo: 0,
-      }
-    },
-  });
-
-  if (precisionValidation !== undefined) {
-    errors.precision = 'Value is not a valid number';
-  }
-  
   return errors;
 }
+
 
 const renderField = ({
   input,
