@@ -1,11 +1,11 @@
 import React from 'react';
 //import logo from '../assets/trollo.png';
-//import styles from './App.pcss';
 require('bootstrap/dist/css/bootstrap.css');
+import styles from './App.pcss';
 
 
 const App = ({ children }) => (
-  <div>
+  <div className={styles.root}>
     {children}
   </div>
 );
