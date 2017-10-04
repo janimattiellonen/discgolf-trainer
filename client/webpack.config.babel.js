@@ -154,7 +154,7 @@ function getCommonPlugins() {
       { from: 'assets/web/*.*', flatten: true },
     ]),
     new HtmlWebpackPlugin({
-      title: 'Hardcorest React App',
+      title: 'Discgolf trainer',
       template: 'assets/index.html',
       favicon: 'assets/favicon.png',
       inject: 'body',

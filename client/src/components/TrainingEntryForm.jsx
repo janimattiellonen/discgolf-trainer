@@ -8,7 +8,7 @@ const validate = (values) => {
 
   if (!values.duration) {
     errors.duration = 'Value is required';
-  } else if (values.duration !=00 parseInt(values.duration, 10)) {
+  } else if (values.duration != parseInt(values.duration, 10)) {
     errors.duration = 'Value is not a valid number';
   }
 
