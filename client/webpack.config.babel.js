@@ -79,6 +79,31 @@ function getCommonLoaders() {
       },
     ),
     {
+  test: /\.scss/,
+  use: ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: [
+      {
+        loader: 'css-loader',
+        options: {
+          importLoaders: 2,
+        },
+      },
+      {
+        loader: 'postcss-loader',
+        options: {
+          config: {
+            path: 'webpack/postcss.config.js',
+          },
+        },
+      },
+      {
+        loader: 'sass-loader',
+      },
+    ],
+  })
+},
+    {
       test: /\.(png|jpg|gif|ico|svg)$/,
       include: [
         PATHS.src,

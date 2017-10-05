@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
-import { Button, Col, ControlLabel, Form, FormGroup, Row } from 'react-bootstrap';
+import { Button, Col, ControlLabel, Form, FormControl, FormGroup, Row } from 'react-bootstrap';
 
 const validate = (values) => {
   const errors = {};
@@ -31,11 +31,11 @@ const renderField = ({
       <input {...input} placeholder={label} type={type} />
       {touched &&
         ((error &&
-          <span>
+          <span className="has-error">
             {error}
           </span>) ||
           (warning &&
-            <span>
+            <span className="warning">
               {warning}
             </span>))
       }
