@@ -1,4 +1,5 @@
 import { List, Map } from 'immutable';
+import trainingEntryService from '../services/training-entry';
 
 const defaultState = Map({
   trainingEntries: List(),
@@ -36,6 +37,12 @@ export function getTrainingEntry(id) {
   };
 }
 
+export function saveTrainingEntry(trainingEntry) {
+  return (dispatch) => {
+    return trainingEntryService.save(trainingEntry); // handle then() etc
+  };
+}
+
 export default (state = defaultState, action) => {
   const { type, payload } = action;
   console.log("type: " + type);
@@ -47,6 +54,8 @@ export default (state = defaultState, action) => {
     case 'GET_TRAINING_ENTRIES':
       return state.set('trainingEntries', payload);
 
+    case 'SAVE_TRAINING_ENTRY':
+      return state;
     default:
       return state;
   }

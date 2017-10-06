@@ -13,7 +13,7 @@ export default class NewTrainingEntryPage extends React.Component {
   }
 
   render() {
-    const { trainingEntry } = this.props;
+    const { trainingEntry, saveTrainingEntry } = this.props;
 
     return (
       <div className="main">
@@ -22,7 +22,9 @@ export default class NewTrainingEntryPage extends React.Component {
         </div>
 
         <div className={mainStyles.content}>
-            <TrainingEntryForm />
+            <TrainingEntryForm
+              onSubmit={saveTrainingEntry}
+            />
         </div>
       </div>
     );

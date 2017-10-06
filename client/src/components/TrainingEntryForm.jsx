@@ -43,9 +43,9 @@ const renderField = ({
   </div>
 
 
-const TrainingEntryForm = ({ pristine, submitting, valid }) => (
+const TrainingEntryForm = ({ handleSubmit, pristine, submitting, valid }) => (
   <div className="training-entry-form">
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col md={12} sm={12} xs={12}>
           <Field

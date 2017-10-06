@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Wrapped from './pages/NewTrainingEntryPage';
-import { getTrainingEntry, getTrainingEntries } from '../../ducks/training';
+import { getTrainingEntry, getTrainingEntries, saveTrainingEntry } from '../../ducks/training';
 
 export default connect(
   (state, props) => ({
@@ -11,5 +11,6 @@ export default connect(
   dispatch => bindActionCreators({
     getTrainingEntry,
     getTrainingEntries,
+    saveTrainingEntry,
   }, dispatch),
 )(Wrapped);
