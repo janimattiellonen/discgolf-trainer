@@ -15,6 +15,16 @@ const connection = mysql.createConnection({
   database : process.env.DB_NAME,
 });
 
+connection.config.queryFormat = function (query, values) {
+  if (!values) return query;
+  return query.replace(/\:(\w+)/g, function (txt, key) {
+    if (values.hasOwnProperty(key)) {
+      return this.escape(values[key]);
+    }
+    return txt;
+  }.bind(this));
+};
+
 let persons = Range(1, 21).map(personService.createPerson).toList();
 
 const app = express();
@@ -28,7 +38,13 @@ app.get('/person', function (req, res, next) {
 app.post('/training-entry', (req, res) => {
   console.log("Params: " + JSON.stringify(req.body));
   // Params: {"trainingEntry":{"duration":"22","precision":"22"}}
-  
+  const { duration, precision } = req.body.trainingEntry;
+
+  connection.query('INSERT INTO training_entry (`duration`, `precision`) VALUES(:duration, :precision)', {
+    duration,
+    precision,
+  });
+
   res.json({success: true});
 });
 
