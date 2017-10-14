@@ -1,5 +1,5 @@
 CREATE TABLE training_entry (
-  `id` int unsigned NOT NULL,
+  `id` int unsigned AUTO_INCREMENT NOT NULL,
   `duration` INT(10) UNSIGNED DEFAULT 0,
   `precision` DECIMAL(10, 2) UNSIGNED NOT NULL,
   `feeling` TINYINT(10) UNSIGNED DEFAULT 0,

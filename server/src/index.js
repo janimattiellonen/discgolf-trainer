@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { Range } from 'immutable';
 import mysql from 'mysql';
 import personService from './services/person';
+import trainingEntryService from './services/training-entry-service';
 
 dotenv.config();
 
@@ -38,14 +39,14 @@ app.get('/person', function (req, res, next) {
 app.post('/training-entry', (req, res) => {
   console.log("Params: " + JSON.stringify(req.body));
   // Params: {"trainingEntry":{"duration":"22","precision":"22"}}
-  const { duration, precision } = req.body.trainingEntry;
+ 
+  trainingEntryService.save(req.body.trainingEntry, connection, (error, results, fields) => {
+    if (error) {
+      throw `An error occured while saving training entry: ${error}`;
+    }
 
-  connection.query('INSERT INTO training_entry (`duration`, `precision`) VALUES(:duration, :precision)', {
-    duration,
-    precision,
+    res.json({success: true});
   });
-
-  res.json({success: true});
 });
 
 app.listen(process.env.PORT, () => {
