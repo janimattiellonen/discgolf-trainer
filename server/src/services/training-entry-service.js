@@ -3,16 +3,48 @@ import moment from 'moment';
 function save(data, connection, callback) {
     const {
         duration,
-        precision
+        precision,
+        practiseTypeId,
+        runupId,
+        feeling,
+        comments,
     } = data;
 
     const now = moment().format('YYYY-MM-DD HH:mm:ss');
 
     connection.query(
-        'INSERT INTO training_entry (`duration`, `precision`, `practise_id`, `practise_type_id`, `runup_id`, `created_at`, `updated_at`) VALUES(:duration, :precision, 1, 1, 1, :createdAt, :updatedAt)',
+        `INSERT INTO 
+            training_entry 
+            (
+                duration, 
+                \`precision\`, 
+                feeling, 
+                practise_id, 
+                practise_type_id, 
+                runup_id, 
+                comments,
+                created_at, 
+                updated_at
+            ) 
+            VALUES 
+            (
+                :duration, 
+                :precision, 
+                :feeling,
+                1, 
+                :practiseTypeId, 
+                :runupId, 
+                :comments,
+                :createdAt, 
+                :updatedAt
+            )`,
         {
             duration,
             precision,
+            practiseTypeId,
+            runupId,
+            feeling,
+            comments,
             createdAt: now,
             updatedAt: now,
         },

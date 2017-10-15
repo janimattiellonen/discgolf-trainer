@@ -21,10 +21,12 @@ export default class NewTrainingEntryPage extends React.Component {
           <h1>New training entry</h1>
         </div>
 
-        <div className={mainStyles.content}>
+        <div className="container">
+          <div className={mainStyles.content}>
             <TrainingEntryForm
               onSubmit={saveTrainingEntry}
             />
+          </div>
         </div>
       </div>
     );
