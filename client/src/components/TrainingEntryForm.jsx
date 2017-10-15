@@ -96,7 +96,7 @@ const TrainingEntryForm = ({ handleSubmit, pristine, submitting, valid }) => (
   <div className="training-entry-form">
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col md={12} sm={12} xs={12}>
+        <Col md={6} sm={12} xs={12}>
           <Field
             name="duration"
              type="text"
@@ -107,7 +107,7 @@ const TrainingEntryForm = ({ handleSubmit, pristine, submitting, valid }) => (
       </Row>
 
       <Row>
-        <Col md={12} sm={12} xs={12}>
+        <Col md={6} sm={12} xs={12}>
           <Field
             name="practiseTypeId"
              type="text"
@@ -124,7 +124,7 @@ const TrainingEntryForm = ({ handleSubmit, pristine, submitting, valid }) => (
       </Row>
 
       <Row>
-        <Col md={12} sm={12} xs={12}>
+        <Col md={6} sm={12} xs={12}>
           <Field
             name="runupid"
              type="text"
@@ -140,7 +140,7 @@ const TrainingEntryForm = ({ handleSubmit, pristine, submitting, valid }) => (
       </Row>
 
       <Row>
-        <Col md={12} sm={12} xs={12}>
+        <Col md={6} sm={12} xs={12}>
           <Field
             name="precision"
              type="text"
@@ -151,7 +151,7 @@ const TrainingEntryForm = ({ handleSubmit, pristine, submitting, valid }) => (
       </Row>
 
       <Row>
-        <Col md={12} sm={12} xs={12}>
+        <Col md={6} sm={12} xs={12}>
           <Field
             name="feeling"
             type="text"
@@ -162,7 +162,7 @@ const TrainingEntryForm = ({ handleSubmit, pristine, submitting, valid }) => (
       </Row>
 
       <Row>
-        <Col md={12} sm={12} xs={12}>
+        <Col md={6} sm={12} xs={12}>
           <Field
             name="comments"
             type="select"
@@ -173,7 +173,7 @@ const TrainingEntryForm = ({ handleSubmit, pristine, submitting, valid }) => (
       </Row>
 
       <Row>
-        <Col md={12} sm={12} xs={12}>
+        <Col md={6} sm={12} xs={12}>
           <Button bsStyle="success" disabled={pristine || submitting || !valid} type="submit">Lähetä vastaus</Button>
         </Col>
       </Row>
