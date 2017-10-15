@@ -36,9 +36,12 @@ app.get('/person', function (req, res, next) {
   res.json(persons);
 });
 
-app.post('/training-entry', (req, res) => {
+app.get('/training-entries', (req, res) => {
+
+});
+
+app.post('/training-entries', (req, res) => {
   console.log("Params: " + JSON.stringify(req.body));
-  // Params: {"trainingEntry":{"duration":"22","precision":"22"}}
  
   trainingEntryService.save(req.body.trainingEntry, connection, (error, results, fields) => {
     if (error) {

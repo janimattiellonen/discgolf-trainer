@@ -5,7 +5,7 @@ const api = process.env.REACT_APP_API;
 
 function save(trainingEntry) {
   return axios
-    .post(`${api}/training-entry`, { trainingEntry } )
+    .post(`${api}/training-entries`, { trainingEntry } )
     .then(ret => ret.data)
     .then(result => result)
   ;
