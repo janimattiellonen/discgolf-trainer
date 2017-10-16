@@ -34,7 +34,7 @@ export function getTrainingEntries() {
 export function getTrainingEntry(id) {
   return (dispatch) => {
     return trainingEntryService.get(id)
-    .then(result => dispatch({ type: 'GET_TRAINING_ENTRY', payload: result }))
+    .then(result => dispatch({ type: 'GET_TRAINING_ENTRY_DONE', payload: result }))
   };
 }
 
@@ -47,10 +47,6 @@ export function saveTrainingEntry(trainingEntry) {
 export default (state = defaultState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case 'GET_TRAINING_ENTRY':
-      const tt = state.get('trainingEntries').find(p => p.id === parseInt(payload));
-      return state.set('trainingEntry', tt);
-
     case 'GET_TRAINING_ENTRY_DONE':
       console.log("payload: " + JSON.stringify(payload));
       return state.set('trainingEntry', payload);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { Button, Col, ControlLabel, Form, FormControl, FormGroup, InputGroup, Row } from 'react-bootstrap';
@@ -27,7 +28,7 @@ const renderField = ({
     <label>{label}</label>
 
     <FormGroup bsSize="large">
-      <FormControl class{...input} placeholder={label} type={type} />
+      <FormControl {...input} placeholder={label} type={type} />
       {touched &&
         ((error &&
           <span className="has-error">
@@ -76,7 +77,7 @@ const renderTextAreaField = ({
     <div>
     <FormControl {...input} componentClass="select" placeholder="Select">
         {options.map(option => (
-          <option value={option.key}>{option.value}</option>
+          <option key={option.key} value={option.key}>{option.value}</option>
         ))}
       </FormControl>
       {touched &&

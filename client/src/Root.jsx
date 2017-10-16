@@ -12,7 +12,8 @@ function AppLayoutRoute({ match }) {
     <AppLayout>
       <Route exact path={`${match.url}/new`} component={NewTrainingEntryContainer} />
       <Route exact path={`${match.url}/:id`} component={TrainingEntryContainer} />
-    </AppLayout>
+      <Route exact path={`${match.url}/:id/edit`} component={NewTrainingEntryContainer} />
+      </AppLayout>
   );
 }
 

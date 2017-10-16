@@ -48,6 +48,7 @@ app.get('/training-entries/:id', (req, res) => {
 
     if (!results.length) {
       res.status(404).json({success: false, message: `Training entry wtih the id ${req.params.id} was not found`}).end();
+      return;
     }
 
     const entry = results[0];

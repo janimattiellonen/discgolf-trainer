@@ -5,7 +5,6 @@ import { getTrainingEntry, getTrainingEntries, saveTrainingEntry } from '../../d
 
 export default connect(
   (state, props) => ({
-    trainingEntry: state.training.get('trainingEntries').find(t => t.id === props.id),
     trainingEntry: state.training.get('trainingEntry'),
   }),
   dispatch => bindActionCreators({
