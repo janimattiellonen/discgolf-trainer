@@ -1,5 +1,9 @@
 import moment from 'moment';
 
+function get(id, connection, callback) {
+    connection.query('SELECT * FROM training_entry WHERE id =:id', { id }, callback);
+}
+
 function save(data, connection, callback) {
     const {
         duration,
@@ -53,5 +57,6 @@ function save(data, connection, callback) {
 }
 
 export default {
+    get,
     save,
 }

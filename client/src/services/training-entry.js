@@ -3,6 +3,13 @@ import { List } from 'immutable';
 
 const api = process.env.REACT_APP_API;
 
+function get(id) {
+  return axios
+    .get(`${api}/training-entries/${id}`)
+    .then(ret => ret.data)
+    .then(result => result);
+}
+
 function save(trainingEntry) {
   return axios
     .post(`${api}/training-entries`, { trainingEntry } )
@@ -12,5 +19,6 @@ function save(trainingEntry) {
 }
 
 export default {
+  get,
   save,
 };

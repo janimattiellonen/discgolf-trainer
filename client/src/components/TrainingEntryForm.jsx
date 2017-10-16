@@ -126,7 +126,7 @@ const TrainingEntryForm = ({ handleSubmit, pristine, submitting, valid }) => (
       <Row>
         <Col md={6} sm={12} xs={12}>
           <Field
-            name="runupid"
+            name="runupId"
              type="text"
              component={renderSelectField}
              options={[

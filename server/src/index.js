@@ -40,6 +40,31 @@ app.get('/training-entries', (req, res) => {
 
 });
 
+app.get('/training-entries/:id', (req, res) => {
+  trainingEntryService.get(req.params.id, connection, (error, results, fields) => {
+    if (error) {
+      throw `An error occured while getting training entry with id {$id}: ${error}`;
+    }
+
+    if (!results.length) {
+      res.status(404).json({success: false, message: `Training entry wtih the id ${req.params.id} was not found`}).end();
+    }
+
+    const entry = results[0];
+
+    res.json({
+      id: entry.id,
+      duration: entry.duration,
+      precision: entry.precision,
+      feeling: entry.feeling,
+      practiseId: entry.practise_id,
+      practiseTypeId: entry.practise_type_id,
+      runupId: entry.runup_id,
+      comments: entry.comments,
+    });
+  });
+});
+
 app.post('/training-entries', (req, res) => {
   console.log("Params: " + JSON.stringify(req.body));
  

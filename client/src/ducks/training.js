@@ -3,6 +3,7 @@ import trainingEntryService from '../services/training-entry';
 
 const defaultState = Map({
   trainingEntries: List(),
+  trainingEntry: null,
 });
 
 export function getTrainingEntries() {
@@ -31,9 +32,9 @@ export function getTrainingEntries() {
 }
 
 export function getTrainingEntry(id) {
-  return {
-    type: 'GET_TRAINING_ENTRY',
-    payload: id,
+  return (dispatch) => {
+    return trainingEntryService.get(id)
+    .then(result => dispatch({ type: 'GET_TRAINING_ENTRY', payload: result }))
   };
 }
 
@@ -45,11 +46,14 @@ export function saveTrainingEntry(trainingEntry) {
 
 export default (state = defaultState, action) => {
   const { type, payload } = action;
-  console.log("type: " + type);
   switch (type) {
     case 'GET_TRAINING_ENTRY':
       const tt = state.get('trainingEntries').find(p => p.id === parseInt(payload));
       return state.set('trainingEntry', tt);
+
+    case 'GET_TRAINING_ENTRY_DONE':
+      console.log("payload: " + JSON.stringify(payload));
+      return state.set('trainingEntry', payload);
 
     case 'GET_TRAINING_ENTRIES':
       return state.set('trainingEntries', payload);

@@ -8,8 +8,11 @@ import mainStyles from '../App.pcss';
 export default class NewTrainingEntryPage extends React.Component {
   componentWillMount() {
     const { match, getTrainingEntry, getTrainingEntries } = this.props;
-    getTrainingEntries();
-    getTrainingEntry(match.params.id);
+    //getTrainingEntries();
+
+    if (match.params.id) {
+      getTrainingEntry(match.params.id);
+    }
   }
 
   render() {
