@@ -39,7 +39,11 @@ export function getTrainingEntry(id) {
 }
 
 export function saveTrainingEntry(trainingEntry) {
-  return (dispatch) => {
+  return (dispatch) => {    
+    if (trainingEntry.id) {
+      return trainingEntryService.update(trainingEntry); // handle then() etc
+    }
+
     return trainingEntryService.save(trainingEntry); // handle then() etc
   };
 }

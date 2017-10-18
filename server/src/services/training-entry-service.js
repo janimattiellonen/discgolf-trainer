@@ -56,7 +56,47 @@ function save(data, connection, callback) {
     );
 }
 
+function update(id, data, connection, callback) {
+    const {
+        duration,
+        precision,
+        practiseTypeId,
+        runupId,
+        feeling,
+        comments,
+    } = data;
+
+    connection.query(
+        `UPDATE 
+            training_entry
+        SET            
+            duration = :duration, 
+            \`precision\` = :precision, 
+            feeling = :feeling, 
+            practise_id = 1, 
+            practise_type_id = :practiseTypeId, 
+            runup_id = :runupId, 
+            comments = :comments,
+            updated_at = :updatedAt
+        WHERE
+            id = :id
+        `,
+        {
+            id,
+            duration,
+            precision,
+            practiseTypeId,
+            runupId,
+            feeling,
+            comments,
+            updatedAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+        },
+        callback
+    );
+}
+
 export default {
     get,
     save,
+    update,
 }

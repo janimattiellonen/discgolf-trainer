@@ -78,6 +78,18 @@ app.post('/training-entries', (req, res) => {
   });
 });
 
+app.put('/training-entries/:id', (req, res) => {
+  console.log("Params (update): " + JSON.stringify(req.body));
+  
+   trainingEntryService.update(req.params.id, req.body.trainingEntry, connection, (error, results, fields) => {
+     if (error) {
+       throw `An error occured while saving training entry: ${error}`;
+     }
+ 
+     res.json({success: true});
+   });
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`)
 })

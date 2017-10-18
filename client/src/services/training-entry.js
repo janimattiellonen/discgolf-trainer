@@ -14,11 +14,18 @@ function save(trainingEntry) {
   return axios
     .post(`${api}/training-entries`, { trainingEntry } )
     .then(ret => ret.data)
-    .then(result => result)
-  ;
+    .then(result => result);
+}
+
+function update(trainingEntry) {
+  return axios
+  .put(`${api}/training-entries/${trainingEntry.id}`, { trainingEntry } )
+  .then(ret => ret.data)
+  .then(result => result);
 }
 
 export default {
   get,
   save,
+  update,
 };
