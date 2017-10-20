@@ -16,12 +16,21 @@ export default class NewTrainingEntryPage extends React.Component {
   }
 
   render() {
-    const { trainingEntry, saveTrainingEntry } = this.props;
+    const { match, trainingEntry, saveTrainingEntry } = this.props;
 
     return (
       <div className="main">
         <div className={mainStyles.header}>
+        {
+          match.params.id &&
+          <h1>Edit training entry</h1>
+        }
+
+        {
+          !match.params.id &&
           <h1>New training entry</h1>
+        }
+
         </div>
 
         <div className="container">
