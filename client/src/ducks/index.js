@@ -5,6 +5,7 @@ import { reducer as uiReducer } from 'redux-ui';
 import { reducer as toastrReducer } from 'react-redux-toastr';
 import person from './person';
 import training from './training';
+import practise from './practise';
 
 export default combineReducers({
   router: routerReducer,
