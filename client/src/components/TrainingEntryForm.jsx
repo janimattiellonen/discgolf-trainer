@@ -13,8 +13,6 @@ const validate = (values) => {
     errors.duration = 'Value is not a valid number';
   }
 
-  console.log(JSON.stringify(errors));
-
   return errors;
 }
 
@@ -175,7 +173,7 @@ const TrainingEntryForm = ({ handleSubmit, pristine, submitting, valid }) => (
 
       <Row>
         <Col md={6} sm={12} xs={12}>
-          <Button bsStyle="success" disabled={pristine || submitting || !valid} type="submit">Lähetä vastaus</Button>
+          <Button bsStyle="success" disabled={pristine || submitting || !valid} type="submit">Tallenna</Button>
         </Col>
       </Row>
     </Form>

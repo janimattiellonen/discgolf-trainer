@@ -48,7 +48,7 @@ export function saveTrainingEntry(trainingEntry) {
   };
 }
 
-export default (state = defaultState, action) => {
+export default (state = defaultState, action = {}) => {
   const { type, payload } = action;
   switch (type) {
     case 'GET_TRAINING_ENTRY_DONE':
