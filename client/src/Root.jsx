@@ -6,6 +6,7 @@ import App from './components/container/AppContainer';
 import AppLayout from './components/container/layouts/AppLayout';
 import NewTrainingEntryContainer from './components/container/NewTrainingEntryContainer';
 import TrainingEntryContainer from './components/container/TrainingEntryContainer';
+import TrainingEntryListContainer from './components/container/TrainingEntryListContainer';
 
 function AppLayoutRoute({ match }) {
   return (
@@ -13,6 +14,8 @@ function AppLayoutRoute({ match }) {
       <Route exact path={`${match.url}/new`} component={NewTrainingEntryContainer} />
       <Route exact path={`${match.url}/:id`} component={TrainingEntryContainer} />
       <Route exact path={`${match.url}/:id/edit`} component={NewTrainingEntryContainer} />
+      <Route exact path={`${match.url}`} component={TrainingEntryListContainer} />
+
       </AppLayout>
   );
 }
